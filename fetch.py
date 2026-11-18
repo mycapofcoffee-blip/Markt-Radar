@@ -56,7 +56,7 @@ def sammeln():
             items.append({"url": link, "title": e.get("title", ""), "source": quelle,
                           "date": dt.date.fromtimestamp(ts).isoformat(), "text": text, "bereich": bereich})
     print(len(items), "Meldungen gesammelt")
-    return items[:150]
+    return items[:240]
 
 PROMPT = """Du filterst Meldungen für einen Business-Development-Manager, der Übertragungen und Wettbewerbs-Events an Hersteller von Tabletop- und Sammelkartenspielen verkauft.
 Behalte NUR Meldungen, die dafür wirklich nützlich sind:
@@ -76,16 +76,25 @@ def filtern(items):
     if not items:
         return []
     client = Anthropic()
-    liste = "\n".join(f"{i}. {x['title']} | {x['source']} | {x['text']}" for i, x in enumerate(items))
-    r = client.messages.create(model="claude-haiku-5-5", max_tokens=8000,
-                               messages=[{"role": "user", "content": PROMPT + liste}])
-    raw = re.sub(r"^```(json)?|```$", "", "".join(b.text for b in r.content if b.type == "text").strip(), flags=re.M).strip()
     out = []
-    for k in json.loads(raw):
-        x = items[k["i"]]
-        out.append({"url": x["url"], "title": x["title"], "source": x["source"], "date": x["date"],
-                    "bereich": k["bereich"], "kategorie": k["kategorie"], "spiel": k.get("spiel", ""),
-                    "zusammenfassung": k["zusammenfassung"]})
+    for start in range(0, len(items), 40):  # in Päckchen, damit die Antwort nie abgeschnitten wird
+        teil = items[start:start + 40]
+        liste = "\n".join(f"{i}. {x['title']} | {x['source']} | {x['text']}" for i, x in enumerate(teil))
+        try:
+            r = client.messages.create(model="claude-haiku-5-5", max_tokens=8000,
+                                       messages=[{"role": "user", "content": PROMPT + liste}])
+            if r.stop_reason == "max_tokens":
+                print("Warnung: Antwort in Päckchen", start, "abgeschnitten")
+            text = "".join(b.text for b in r.content if b.type == "text").strip()
+            raw = re.sub(r"^```(json)?|```$", "", text, flags=re.M).strip()
+            for k in json.loads(raw):
+                x = teil[k["i"]]
+                out.append({"url": x["url"], "title": x["title"], "source": x["source"], "date": x["date"],
+                            "bereich": k["bereich"], "kategorie": k["kategorie"], "spiel": k.get("spiel", ""),
+                            "zusammenfassung": k["zusammenfassung"]})
+        except Exception as e:
+            print("Fehler beim Filtern, Päckchen", start, e)
+    print(len(out), "Meldungen behalten")
     return out
 
 # Seiten ohne Feed: Claude liest den Seitentext und holt Events und Meldungen heraus.
