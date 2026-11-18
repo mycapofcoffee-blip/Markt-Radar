@@ -60,9 +60,9 @@ def filtern(items):
         return []
     client = Anthropic()
     liste = "\n".join(f"{i}. {x['title']} | {x['source']} | {x['text']}" for i, x in enumerate(items))
-    r = client.messages.create(model="claude-haiku-5-5", max_tokens=4000,
+    r = client.messages.create(model="claude-haiku-5-5", max_tokens=8000,
                                messages=[{"role": "user", "content": PROMPT + liste}])
-    raw = re.sub(r"^```(json)?|```$", "", r.content[0].text.strip(), flags=re.M).strip()
+    raw = re.sub(r"^```(json)?|```$", "", "".join(b.text for b in r.content if b.type == "text").strip(), flags=re.M).strip()
     out = []
     for k in json.loads(raw):
         x = items[k["i"]]
@@ -114,9 +114,9 @@ def seiten_lesen():
             print(name, ": kaum Text, vermutlich JavaScript-Seite")
             continue
         try:
-            r = client.messages.create(model="claude-haiku-5-5", max_tokens=3000,
+            r = client.messages.create(model="claude-haiku-5-5", max_tokens=6000,
                                        messages=[{"role": "user", "content": SEITEN_PROMPT + f"Seite: {name} ({bereich})\n" + text}])
-            raw = re.sub(r"^```(json)?|```$", "", r.content[0].text.strip(), flags=re.M).strip()
+            raw = re.sub(r"^```(json)?|```$", "", "".join(b.text for b in r.content if b.type == "text").strip(), flags=re.M).strip()
             for k in json.loads(raw):
                 if k.get("url") in links:
                     out.append({"url": k["url"], "title": k["title"], "source": name,
@@ -142,4 +142,3 @@ def main():
     print(len(neu), "neu,", len(items), "gesamt")
 
 main()
-      
