@@ -1,5 +1,9 @@
 {
- "stand": "2026-11-18T08:52+00:00",
+ "stand": "2026-11-18T09:14+00:00",
+ "brief": {
+  "text": "Guten Morgen, Gerrit. Heute ist Mittwoch, der 18. November 2026.\n\nDas Wichtigste vorweg: Im Pokémon-Format TEF-30C führt Dragapult laut Limitless TCG mit 36,46 Prozent ganz klar. Außerdem erscheint am 20. November das neue Star-Wars-Unlimited-Set Icons.\n\nZuerst zum Tabletop. Turniere sind in den Meldungen kaum angekündigt. Die Berserk Con 2026 in Moskau bietet laut Foro3D Rollenspiel, Kunst und Turniere. Welche Systeme gespielt werden, steht nicht dabei. Goonhammer hat ein Wochenend-Update zum kompetitiven Warhammer und StarCraft veröffentlicht. Außerdem gibt es dort ein Interview mit dem Sieger des California Cup, es geht um Space Wolves.\n\nBei den Herstellern ist mehr los. Laut Investing.com meldet Asmodee für das zweite Quartal einen Umsatzsprung von 37 Prozent. Beim Crowdfunding läuft es stark. Das Satisfactory-Brettspiel hat laut GodisaGeek über 3,6 Millionen Euro eingenommen. Terminator 2 erreichte laut iXBT.games sein Ziel in zwei Stunden. Und Nemesis: Legacy hat laut BoardGameWire einen Rekord gebrochen. Die Verleger warnen dort aber vor steigenden Kosten. Chaosium stoppt laut BoardGameWire das Forbidden-Stars-Remake, nachdem der Designer verurteilt wurde.\n\nJetzt zu den Sammelkartenspielen. Bei Pokémon stehen die Regionals an. Laut Limitless TCG ist São Paulo am 20. November dran, Chiba am 22., Stuttgart am 28. November und Las Vegas am 5. Dezember. Für Mai 2027 kündigt PokeBeach die Pokémon-ex-Stern-Serie an. Bei Riftbound gelten laut der offiziellen Ankündigung ab dem 23. November neue Banlisten-Änderungen. Ein YouTube-Video berichtet außerdem von der ersten Riftbound Regional Championship überhaupt.\n\nBei den kleineren Spielen fällt zuerst Hellbreak auf. Das neue Horror-Kartenspiel hat bei GamingTrend einen Praxisbericht bekommen. Das Harvest Bowl von Origins TCG hatte laut eGamers.io 1.024 Spieler und erlaubte als erstes Turnier Sideboards. Union Arena zeigt laut Toy People das Booster-Pack Strawberry 100 Prozent. Bei Magic gibt es laut GamingTrend eine Netflix-Serie namens Planeswalker und die Enthüllung von Nauctis auf der MagicCon Atlanta.\n\nMögliche Ansatzpunkte gibt es ein paar. Laut GameFragger kündigt Bandai Turniere für One Piece zusammen mit Nike an. Bei so einer Marken-Kooperation lohnt sich eine Nachfrage. Das Convergence Fest bringt laut Happy Gamer vom 11. bis 13. Dezember TFT und Riftbound nach Las Vegas. Ob es dort Übertragungen gibt, steht in den Meldungen nicht. Das gilt auch für die Regionals und das Harvest Bowl. Das könnte man klären.\n\nDas war es für heute. Ich wünsche dir einen ruhigen Start und einen guten Tag.",
+  "datum": "2026-11-18"
+ },
  "items": [
   {
    "url": "https://limitlesstcg.com/tournaments/587",
@@ -9,7 +13,7 @@
    "bereich": "tcg",
    "kategorie": "Event",
    "spiel": "Pokémon TCG",
-   "zusammenfassung": "Kommendes Pokémon-TCG-Regional in Las Vegas, NV am 05.12.2026. Spielerzahl und Veranstalter werden im Text nicht genannt."
+   "zusammenfassung": "Kommendes Regional-Turnier in Las Vegas, NV am 5. Dezember 2026."
   },
   {
    "url": "https://limitlesstcg.com/tournaments/586",
@@ -19,7 +23,7 @@
    "bereich": "tcg",
    "kategorie": "Event",
    "spiel": "Pokémon TCG",
-   "zusammenfassung": "Kommendes Pokémon-TCG-Regional in Stuttgart am 28.11.2026. Spielerzahl und Veranstalter werden im Text nicht genannt."
+   "zusammenfassung": "Kommendes Regional-Turnier in Stuttgart am 28. November 2026."
   },
   {
    "url": "https://limitlesstcg.com/tournaments/570",
@@ -29,7 +33,7 @@
    "bereich": "tcg",
    "kategorie": "Event",
    "spiel": "Pokémon TCG",
-   "zusammenfassung": "Kommendes Pokémon-TCG-Event in Chiba am 22.11.2026. Spielerzahl und Veranstalter werden im Text nicht genannt."
+   "zusammenfassung": "Kommendes Champions League-Turnier in Chiba am 22. November 2026."
   },
   {
    "url": "https://limitlesstcg.com/tournaments/574",
@@ -39,7 +43,7 @@
    "bereich": "tcg",
    "kategorie": "Event",
    "spiel": "Pokémon TCG",
-   "zusammenfassung": "Kommendes Pokémon-TCG-Turnier in São Paulo am 20.11.2026. Spielerzahl und Veranstalter werden im Text nicht genannt."
+   "zusammenfassung": "Kommendes Turnier LAIC 2026–27 in São Paulo am 20. November 2026."
   },
   {
    "url": "https://limitlesstcg.com/decks?format=TEF-30C",
@@ -59,7 +63,7 @@
    "bereich": "tcg",
    "kategorie": "Event",
    "spiel": "",
-   "zusammenfassung": "Wiederkehrende Late-Night-Events, die laut Seite jeden Mittwochabend stattfinden. Spiel und Spielerzahl sind im Text nicht genannt."
+   "zusammenfassung": "Wiederkehrende Late-Night-Events, die laut Seite jeden Mittwochabend stattfinden. Der Seitentext nennt weder das Spiel noch den Veranstalter im Detail."
   },
   {
    "url": "https://play.limitlesstcg.com/organizer/1858",
@@ -69,7 +73,27 @@
    "bereich": "tcg",
    "kategorie": "Event",
    "spiel": "Pokémon TCG Pocket",
-   "zusammenfassung": "Wiederkehrende PTCGP League, die laut Seite jeden Sonntag stattfindet. Die Abkürzung PTCGP bezieht sich vermutlich auf Pokémon TCG Pocket, Spielerzahl und Veranstalter sind nicht genannt."
+   "zusammenfassung": "Wiederkehrende PTCGP-League, die laut Seite jeden Sonntag stattfindet."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZjluMDNJM3pxT0RrTF9oVlEwUWhfaXZENXRBRUZfbXY1ZEhCU0czdjd4R1ZSWHUyYUpfTjhmOTVUN0JRaEpWZ1FqNUtGVUtXNlk4XzdMd0VzTVp4ODJFQUdocDZtWjFicGFidzJQTWZmUlJSUzdXMzM3a3RkZk9YcXBxa0s5dw?oc=5",
+   "title": "Origins of Light Final Fantasy Board Game Has One Day Left on Kickstarter - GodisaGeek.com",
+   "source": "GodisaGeek.com",
+   "date": "2026-11-18",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "Origins of Light: Final Fantasy",
+   "zusammenfassung": "Die Kickstarter-Kampagne für das Final-Fantasy-Brettspiel Origins of Light endet in einem Tag."
+  },
+  {
+   "url": "https://limitlesstcg.com/decks/284",
+   "title": "Top Decks TEF-30C: Dragapult mit 36,46 % an der Spitze",
+   "source": "Limitless TCG",
+   "date": "2026-11-18",
+   "bereich": "tcg",
+   "kategorie": "TCG-Trend",
+   "spiel": "Pokémon TCG",
+   "zusammenfassung": "Im Format TEF-30C dominiert Dragapult mit 36,46 % das Deck-Ranking, gefolgt von Basic Box mit 8,78 % und Slowking mit 7,67 %."
   },
   {
    "url": "https://www.tabletopbattles.com/eldfall-chronicles-apocrypha-tabletop-battles-interviews-samo-planinc-freecompany/",
@@ -79,7 +103,7 @@
    "bereich": "tabletop",
    "kategorie": "Hersteller",
    "spiel": "Eldfall Chronicles: Apocrypha",
-   "zusammenfassung": "Interview mit Samo Planic von Freecompany über Eldfall Chronicles und das neue Brettspiel Eldfall Chronicles: Apocrypha."
+   "zusammenfassung": "Im Interview spricht Samo Planic von Freecompany über das Brettspiel Eldfall Chronicles: Apocrypha. Es ist ein neues Boardgame des Herstellers."
   },
   {
    "url": "https://www.tabletopgaming.co.uk/news/varada-sethu-star-wars-unlimited-icons-launch/",
@@ -89,7 +113,7 @@
    "bereich": "tcg",
    "kategorie": "TCG-Ankündigung",
    "spiel": "Star Wars: Unlimited",
-   "zusammenfassung": "Andor-Darstellerin Varada Sethu nimmt am Launch-Event des Sets Star Wars: Unlimited Icons in London teil. Das neue Set mit 194 Karten erscheint am 20. November."
+   "zusammenfassung": "Star Wars: Unlimited hat ein Launch-Event mit Andor-Darstellerin Varada Sethu am Tower Bridge in London veranstaltet. Das neue Set Icons mit 194 Karten erscheint am 20. November."
   },
   {
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQZ0ZVWFJsWmtFQmtHWE83ekg2T1dUcmJuZHlfZVJaZk9GZDZLQzVHUzc2aklwb1NfVXd6NmNhcl9DWmdLb0ZoOUxzR04tSnp6OXVXQWZLWTl0Z2lSS0tCdzZBSWR3aERyTjVMOW9nWnkyRGVQN0ZMN0RPOG1kUmM3YzRfUmNVZW91Mk0xZzZQQm04U1JFc0NDQkFSVQ?oc=5",
@@ -99,7 +123,27 @@
    "bereich": "tabletop",
    "kategorie": "Event",
    "spiel": "",
-   "zusammenfassung": "Berserk Con 2026 findet in Moscow statt, mit Rollenspiel, Kunst und Turnieren."
+   "zusammenfassung": "Die Berserk Con 2026 findet in Moskau statt und umfasst Rollenspiel, Kunst und Turniere. Veranstalter und gespielte Systeme werden im Titel nicht genannt."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOWXJjQktxMlNMS2FBQ2o3RVdMOHRIckdfNVREQjRuYnpOdE1zbEtpWUxLYVBNNS1ocC11Ny1yN3E1TW9EZFpjeGZpYi1EU1ZrbG9icnN1QzZnN2tNUjRUUFo3dkVmc2c5bkl2SVVfbVllNUdWeFYybmFJWHAyRnBZUnVCS1lZNDVmZlV6eU96SUtlOE92RC1MbHdPbWFjbnZlMGZkYlRQQkF3b3loY1phdFFEWUhvUWYxcnpldktvMDh0Wm5CcUHSAcsBQVVfeXFMTWcxMkVJUmIwSlpkcVdJbHFPendqYTQ2VXRPOUhTY21pdFVLQWVlOEN4ejJPcnBSZGtIeHdhR09tb0ZyTnl2VVlwOTJ4bkZSS0ZxOEc3UExOOUk1bG5ncXJ2c1VyNkJfX2MyaHZWT1FhOTBreTNJaTEtU3pzLXQwS1NaSVZ6cmFyOW5sM3luSUxkWVBCcDl4U0psc3hXbHExTUluTkRGTWpsTE8zdm9IbWpUaGV1RmpNWmlpR09Pa01xOFNJRjhsM2dPczg?oc=5",
+   "title": "Crowdfunding campaign for the board game Terminator 2: The Board Game reaches goal in two hours - iXBT.games",
+   "source": "iXBT.games",
+   "date": "2026-11-17",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "Terminator 2: The Board Game",
+   "zusammenfassung": "Die Crowdfunding-Kampagne für Terminator 2: The Board Game hat ihr Finanzierungsziel in zwei Stunden erreicht."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQUndJY0Q1dkMtNk5ab1lKRUhRWkhGS25nTl8yX1lvOU5GYkdEZmVqQkRmUnpyOHpHMkNCZE5tT3g3by1SRk9SdldnMGlsWG4xLThwcW1mZkRXS0JDeTl4NjNkRzNwVlhXTlNCUzU3emhCVTFsbkt1Mzk2bmo5ZjNpeEJTZlNmQThONTlCMElpaFlIVzd0ZlJHZjFqcWhvOXBEWTNnUGgzanVveWtUN2JwMU8wdUFCRlVtRUs1cUxGXzIxMUoxc2VKNDlWUzVUMjA?oc=5",
+   "title": "\"Magma Heartbeat,\" \"Lightning Impact,\" and \"Aurora Ripples\" to Launch Pokemon ex★ Series in May 2027! - PokeBeach",
+   "source": "PokeBeach",
+   "date": "2026-11-17",
+   "bereich": "tcg",
+   "kategorie": "TCG-Ankündigung",
+   "spiel": "Pokémon TCG",
+   "zusammenfassung": "Mit \"Magma Heartbeat\", \"Lightning Impact\" und \"Aurora Ripples\" startet im Mai 2027 die Pokémon-ex★-Serie."
   },
   {
    "url": "https://www.tabletopbattles.com/40k-weekend-update-november-16-2026/",
@@ -122,14 +166,74 @@
    "zusammenfassung": "Interview mit dem Gewinner des California Cup über Space Wolves und die aktuelle Meta."
   },
   {
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQ2puWjFvNjVnTnRnTXdNZnVSQ1FOaURHUzh5VHNRNHhMN1JkVG5BUW9yTWQ5eW5vVWV1OGNYM3QwYVByTS05QnhVb1k3a0FZQkl6TkZKYVBDOWRBT1Y1d3hvR0MzV2FlNk1XTHJ3V1p1RkNrM1NJQzJDaXE3eDQyanYyMk1DOWFz?oc=5",
+   "title": "Hellbreak, In Hand - Playing the new horror-themed TCG - GamingTrend",
+   "source": "GamingTrend",
+   "date": "2026-11-16",
+   "bereich": "tcg",
+   "kategorie": "TCG-Ankündigung",
+   "spiel": "Hellbreak",
+   "zusammenfassung": "Ein Praxisbericht über das neue, horrorthematische TCG Hellbreak, bei dem das Spiel vorgestellt wird."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOTjdfc3FmUGhNdEI3WnJRUTFPVmFjWHU4cDFwSFlXY3dzc3lkNUxKa21WX2hCUlRyNFo0Si1ia2QzclBLbUQzWS1YNXUzUFVucFkwSU5QNTF5X19ZQlZrbS1OQ2N5RUtrMk1DSjM4Z01pN05Ia0NiaG9qMWdCa01mdUZzTjlSZHc?oc=5",
+   "title": "Satisfactory Board Game Tops €3.6M in Gamefound Endgame - GodisaGeek.com",
+   "source": "GodisaGeek.com",
+   "date": "2026-11-16",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "Satisfactory",
+   "zusammenfassung": "Das Satisfactory-Brettspiel hat in der Gamefound-Kampagne über 3,6 Mio. € eingenommen."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOOEc3UDE3ZEZ3NjhaWExWcTRnN1dKQVJwQnItN1VaTTZZVEx1LVYxMk95ZVhIb0JzV3RQQVc0U2xYZkxsUWNTeXA2V2J4OWdnQWVuV0N6Tm40RVNBMTVfVzI4V1U3TW9PRUpBQW5nRng0SFFFUlJwR2d0XzFVSDkxem1uQy12YW15MEJpLTU3ZFZzZ2JmUDNvYV9QN0JaZ2NOSkxIb3NNTnpXbGFVVTd5VjRwdzZ2MHpOVjZIdVpkMG5ybWc2RC1CRGhkZGR1Q0JyaDAwTnB3c1hpTkZBZDM2SVhsRzJsVVVCZmFOR0s4QQ?oc=5",
+   "title": "Chaosium halts crowdfunded Forbidden Stars remake after designer Samuel Bailey convicted of child sex offences - BoardGameWire",
+   "source": "BoardGameWire",
+   "date": "2026-11-16",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "Forbidden Stars",
+   "zusammenfassung": "Chaosium stoppt das crowdfinanzierte Remake von Forbidden Stars, nachdem Designer Samuel Bailey wegen Sexualstraftaten verurteilt wurde."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1MX0w1Rk00bXhzbXpYWk50ZnF5dDY5WkNna1ZBbW9sc2dKYkpVdnZjSGhadEw0b2hrb2JXckhhSU9qS3ZDUzNVLXVsT2prby1aVEFQT3l5WW91U1JF?oc=5",
+   "title": "I Went to the FIRST EVER Riftbound Regional Championship! - YouTube",
+   "source": "YouTube",
+   "date": "2026-11-16",
+   "bereich": "tcg",
+   "kategorie": "Event",
+   "spiel": "Riftbound",
+   "zusammenfassung": "Ein YouTube-Video berichtet von der ersten Riftbound Regional Championship überhaupt."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNUHhBaEhVbzI1dnhXREpkczJ1ZGo3Ukh2ZDY4TFAtMDJlU09BZDN5RE5wZGtxXzFTRU5mX3dpZVNfN0wzSG40cm9SU3gzeXJpamxVUkxRclFqTWRyOW5LYTN3OGYtMGpQZV9QdXNNLTNoVjdWMkt3SGF6ZWJMcjdyMk92aDJWQjJDU1liMWxKMA?oc=5",
+   "title": "Convergence Fest Brings TFT and Riftbound to Las Vegas December 11-13 - Happy Gamer",
+   "source": "Happy Gamer",
+   "date": "2026-11-16",
+   "bereich": "tcg",
+   "kategorie": "Event",
+   "spiel": "Riftbound, TFT",
+   "zusammenfassung": "Das Convergence Fest bringt TFT und Riftbound vom 11. bis 13. Dezember nach Las Vegas."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPd1QtZTV3R1hPV0ctZkwzQWJSZ05FMF9jbmQ3TThyMVVZVVlOOW5UTWsySGNmVmF0T3FpZGxXSWdnblI2b0ZxbXN6WU5EdW1YUTZuSFE1YlFNcVZDY0VqYWFBWFhFU3pUajVIZWozSHBWYVNxYlQzMDVuZjF1SUZvWjZfXzluRVlKNUx3SEM0TV9KZ1VtRklF?oc=5",
+   "title": "Full SCG CON 2027 Schedule Announced - Star City Games",
+   "source": "Star City Games",
+   "date": "2026-11-16",
+   "bereich": "tcg",
+   "kategorie": "Event",
+   "spiel": "",
+   "zusammenfassung": "Star City Games hat den vollständigen Zeitplan der SCG CON 2027 veröffentlicht."
+  },
+  {
    "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNNDBHdFlZSnJIdGR1d1BaN1M2YXJCdWducGJpeW1ha0RubzVqTWI2TElaR2RZZVZMajRGZkYwSDRZeVZTUlVzOXQyYWJLYkdxMlZkOTRqTDRmdDFoOVFNM0wyRkhLRE5kSzlvd29FQjJ0dXhXTGVYZ04yeTVoZDlKYURBek1nbnRkOExUSWwxNDFJTGdWWk1zM0V6NFN2NktkQ1BuS1FTeGFWZUJjM1Z1QnFWT0Ewek1fMmlDbWZCRTk2TG1CeXVKNUE4TmRYQ2RwNndZRExlWGVMNTZZeVdSaXNVSGRUdkxxWXJYZlp3?oc=5",
    "title": "Bandai Announces One Piece Card Game X Nike Tournaments With Free Luffy Promo And Nike DON!! Cards - GameFragger.com",
    "source": "GameFragger.com",
    "date": "2026-11-15",
    "bereich": "tcg",
-   "kategorie": "TCG-Ankündigung",
+   "kategorie": "Event",
    "spiel": "One Piece Card Game",
-   "zusammenfassung": "Bandai kündigt One Piece Card Game x Nike Turniere an, mit kostenloser Luffy-Promo und Nike DON!!-Karten."
+   "zusammenfassung": "Bandai kündigt One Piece Card Game x Nike Turniere an, mit kostenlosem Luffy-Promo und Nike DON!!-Karten. Das Event ist eine Kooperation mit Nike."
   },
   {
    "url": "https://limitlesstcg.com/tournaments/jp/5262",
@@ -172,6 +276,26 @@
    "zusammenfassung": "Japanische Pokémon-TCG-City-League in Saitama am 15.11.2026. Spielerzahl und Veranstalter werden im Text nicht genannt."
   },
   {
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQOS1IYlI3OHhUS0EyaDVjZ2xKZUxOTXJhTFNCczRiMHlqTkhhQVAzdkVkOG9PbWFXN3Z6TVVjcWtMeEk4VXdZYXlRdWNBSnE5UmxneTM3TTJwQVZvMWE3UGYwNjZZMHAxcXpjZUFUTTR1bkdpU2MyRnFGNnpZemNCamM2U0J3ZVY2QlJuVERfZlFGWl9mWmRPaDc1dGdtWUVZV2ZNOGpFRWJxVE54Vzg3MUFId2JaMjl2NUVtZzBJQlRsLV93NTBwQUY5YXh6UTQyMERqbnpJUWp0QQ?oc=5",
+   "title": "Bandai Announces One Piece Card Game X Nike Tournaments With Free Luffy Promo And Nike DON!! Cards - GameFragger.com",
+   "source": "GameFragger.com",
+   "date": "2026-11-15",
+   "bereich": "tcg",
+   "kategorie": "Event",
+   "spiel": "One Piece Card Game",
+   "zusammenfassung": "Bandai kündigt One Piece Card Game Turniere in Zusammenarbeit mit Nike an, inklusive eines kostenlosen Luffy-Promos und Nike-DON!!-Karten."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBHT0o1WVJVRjg4NjNVcFpCREIxZnBrblBkRUpjV2dIa0lJaTJZc21XejlSQUhiT0xZZUVvVlkyZUlsYUlUc2V2eDNDc01fNkl3?oc=5",
+   "title": "UNION ARENA Reveals \"Strawberry 100%\" Booster Pack With New Mizuki Kawashita Art—the East-West-South-North Best-Girl War Is Back! - 玩具人 TOY PEOPLE",
+   "source": "玩具人 TOY PEOPLE",
+   "date": "2026-11-15",
+   "bereich": "tcg",
+   "kategorie": "TCG-Ankündigung",
+   "spiel": "Union Arena",
+   "zusammenfassung": "Union Arena stellt das Booster-Pack \"Strawberry 100%\" mit neuem Mizuki-Kawashita-Artwork vor."
+  },
+  {
    "url": "https://limitlesstcg.com/tournaments/585",
    "title": "Special Event Buenos Aires",
    "source": "Limitless TCG",
@@ -182,6 +306,46 @@
    "zusammenfassung": "Pokémon-TCG-Special-Event in Buenos Aires am 14.11.2026 mit 553 Spielern. Veranstalter wird im Text nicht genannt."
   },
   {
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPLVp3bzNsMVRWdDF5SkhzNUFzNDBIN25pWU96eHBCaUgzWTFTSHd2bk1BbmJaaThSZjZfanF2SUZYZ21odVdiUzBOOGI0Zm82cS1McW9xd2ZJSjREZnZfelRYb2phX3ZwcDNGWGp0SFJWME9kSXo2YXVCSTk0aVhiaU1xLVh0RVAxeWkyWmloMFFtcnNqRjdYeWJUS09wLXNpNkxCWg?oc=5",
+   "title": "Netflix reveals Planeswalker, the animated Magic: The Gathering adaptation - GamingTrend",
+   "source": "GamingTrend",
+   "date": "2026-11-14",
+   "bereich": "tcg",
+   "kategorie": "TCG-Ankündigung",
+   "spiel": "Magic: The Gathering",
+   "zusammenfassung": "Netflix kündigt Planeswalker an, eine animierte Adaption von Magic: The Gathering."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTEtkYXJteVVvOUoxMzdUQWZHaEg3dXh4eDVkcmpkZUZtVlVLRXhPUFBEUFpLRHhCamRGOHRYamJsaHNnUHRWUnB4TDk5QmFFVmM4dlRnbXhmT3prbGZDMm42Q1hsZDhWNnZKYng4aHhfZHJCMHgtckcxODY4M2JyTHVINUxpcjVBdnlHRW5sWHdmQlk0M2ZaYg?oc=5",
+   "title": "Sirius Dice reveals Magic: The Gathering Mox Spindown collection - GamingTrend",
+   "source": "GamingTrend",
+   "date": "2026-11-14",
+   "bereich": "tcg",
+   "kategorie": "TCG-Ankündigung",
+   "spiel": "Magic: The Gathering",
+   "zusammenfassung": "Sirius Dice stellt eine Sammlung zu Magic: The Gathering mit dem Thema Mox Spindown vor."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQMl9DaG1jU1J2OVJGaW8yNG1nblFidWd3SHIwRldybTNDN09xbVdiYWlrY1YtXzVrdVd3VTRGUzctVTZraVoxdGJOeWw4STB4TjNRblQzaFVnZ0kxMHJ5Uzl6ZmM0cGZKcEUwTUd0SEM2LWYtX3VLQUhwc2VGNFROZ0IySTlac0k?oc=5",
+   "title": "MagicCon Atlanta unveils Nauctis: The Sunken Realms - GamingTrend",
+   "source": "GamingTrend",
+   "date": "2026-11-14",
+   "bereich": "tcg",
+   "kategorie": "TCG-Ankündigung",
+   "spiel": "Magic: The Gathering",
+   "zusammenfassung": "Auf der MagicCon Atlanta wird Nauctis: The Sunken Realms enthüllt."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMTY0dHprMWJtOW40azVGcEJGaEdHMDF5RnpUVlJ5dkpQZ04zM0lDS0JHV09ta3k0MXJQYXl1a1BMTkdUTzNLYVQ0RlczdWxSTjBoNm9zQXZGMS1mX3BBNWNRTEdGUFp5S3pQdUpsRV9teGdXNHQybElCTFBJeUJFM2RtaUVNRDJ2YkY0NXN0N1B2X0xBUWNfLWI0NnR4UHBiRUhN?oc=5",
+   "title": "Harvest Bowl: Origins TCG’s 1,024-player tournament is the first to allow sideboards - eGamers.io",
+   "source": "eGamers.io",
+   "date": "2026-11-14",
+   "bereich": "tcg",
+   "kategorie": "Event",
+   "spiel": "Origins TCG",
+   "zusammenfassung": "Das Harvest Bowl: Origins TCG-Turnier mit 1.024 Spielern erlaubt als erstes Sideboards."
+  },
+  {
    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNZ0tsdnlDc2ttWVQwZnNEVE9PbjdnSW0xekxZMlJaZ25XeGxkZzN3aDI2N0RIYWhGMDE4a3lJLTlmdU01NS1TcWNkanVIMDJzN3hrZlowdGZHTkpydkxRbHMtWnE3b1pEQTBZSGZwZ3Bvb3hFcHFxOEpsSWVkeEhwTEdKUFRFb0lNSXVmbVhNMGtBYUJPdWFaQWt2OU1hTkxIOWN3ZldYS1ZtTzNfeF9WM3BmSjN4WWgtUWhjUEYyS19sVFVSNngzYnptYmkxTWc?oc=5",
    "title": "Earnings call transcript: Asmodee Q2 2026 sales jump 37% as margin target is hit - Investing.com",
    "source": "Investing.com",
@@ -189,7 +353,107 @@
    "bereich": "tabletop",
    "kategorie": "Hersteller",
    "spiel": "",
-   "zusammenfassung": "Asmodee meldet für Q2 2026 einen Umsatzanstieg von 37% und das Erreichen des Margenziels."
+   "zusammenfassung": "Asmodee meldet im zweiten Quartal 2026 einen Umsatzsprung von 37 % und hat sein Margenziel erreicht. Die Zahlen stammen aus dem Earnings Call."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5NVERSUFA1Qjc0cnJZby1hYW1HVXEzSTRSSm9SRDgtREhtZDZfTUY2ZVQxM0NFMUhSc2VTbHdxZ1dVaENteWtUcDdQT1llRGxlUU9Id2liQ0dnNHJhcHFfUlVxeVo2VHBCekdiOW53?oc=5",
+   "title": "\"We took a huge risk\": how luck, tenacity, and lockdown made the wargame Eldfall Chronicles - www.wargamer.com",
+   "source": "www.wargamer.com",
+   "date": "2026-11-13",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "Eldfall Chronicles",
+   "zusammenfassung": "Artikel über die Entstehung des Wargames Eldfall Chronicles. Er beschreibt, wie Glück, Beharrlichkeit und der Lockdown das Projekt geprägt haben."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNV3Vsb2xXbFBQMnpkUWZjNXM4ZkRLTEJCb3lGQWR2dEh3T3g1TlBVdDRUYWtTa2d6ZjZsQlFVcnlDQW5tTXJwS05lbkhWTkZRTnNRd0twM1l2ZTBHdGdNako5SHpsTF9GWVRCaVhQMWJSN1FsM095RjJHZENYSmJ0WERGUW1PWl9uTHRCdWRBX0FPcXNGWTFkNA?oc=5",
+   "title": "Loke Battle Mats releases new tools for easy adventure creation - GamingTrend",
+   "source": "GamingTrend",
+   "date": "2026-11-13",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "",
+   "zusammenfassung": "Loke Battle Mats veröffentlicht neue Werkzeuge, mit denen sich Abenteuer einfacher erstellen lassen."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNeURfWk5jR3c2VjZIRnROV2NZaTlGU3VvWnYtQ3JNWUlSYmE2d1E4NERSUnhuSW5kbDhYWlFNTTNZM0hCbWlSYXNFOEN0T3ZGVzh0YnFvSTV4WTVBZWo1RjRIQS0xeWFBZGtoSzREcWhXNGNwazBJM2xwWUNFZW5JZVVXQzF5M1UyRGc?oc=5",
+   "title": "Modiphius releases Cohors Cthulhu: Tactics Miniatures - GamingTrend",
+   "source": "GamingTrend",
+   "date": "2026-11-13",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "Cohors Cthulhu: Tactics",
+   "zusammenfassung": "Modiphius veröffentlicht die Miniaturen für Cohors Cthulhu: Tactics."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxPYTlvV0Q3VVZaemw5NUxmVzdTcFJIQjVMdzNTbUR4d21QSl8zWHR0OHJZZ2IySkFvMks2VEpVYkxBbHI3Y2VWT3oxRjZBWFZyei1Uc182bHQyb3lOQmVGZi1wczlGMmk4dUM5VEl5bzh1dld4MjJYUDlDZGRwaXItYXdiZF9XX2xwS0ZJa1cwd0JvRTJvQ24ySzV2Q0pmRTNzMnVTYUF3eUVjSHkzdkxfNnB5SFZuX29ZUWlTeGNZZ2hKdXFLX0hmaXU1cnpnQmhRU2gxWUpHaUxvck5URGtBNFJvMFRtR1pYaDJaVWZCZ3l4dDNaeFZOWG5XRnVNeXIxMENac2h2RTEzSFk2cVkzUg?oc=5",
+   "title": "Nemesis: Legacy breaks board game crowdfunding record amid blockbuster year for sector – but publishers warn of rising costs, growing risks - BoardGameWire",
+   "source": "BoardGameWire",
+   "date": "2026-11-13",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "Nemesis: Legacy",
+   "zusammenfassung": "Nemesis: Legacy hat laut Titel einen Rekord im Brettspiel-Crowdfunding gebrochen. Verleger warnen zugleich vor steigenden Kosten und wachsenden Risiken."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNcXE2V1VhOFhXNl9iM1BKVlVjRGFDZDJqbkluOUFnQXZIeDMwd1ZPNXVmSWNER2NZSHRQTUF4eEZWbWxCN2JIdDJfZUFLbmpTMFY5dkUxbW1kNmNRamhfMUhqS2tLVUtseDJEQ05BVGhRYm5MaWt0bktBTENzZlViejFldThRZkRQNXNRa1lfTHBPaWROY2tieWN6NzExMHhCa0dIY1d5cw?oc=5",
+   "title": "Radiance Ban List Updates (Effective November 23, 2026) - Riftbound",
+   "source": "Riftbound",
+   "date": "2026-11-13",
+   "bereich": "tcg",
+   "kategorie": "TCG-Ankündigung",
+   "spiel": "Riftbound",
+   "zusammenfassung": "Riftbound hat offizielle Ban-List-Änderungen angekündigt, die ab dem 23. November 2026 gelten."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQaktFU01iSnVNdkNtQnRKZU9HcmwxQUdjTDRHdkxtY1ZKNWlmZ3ZRNHJfdHpCYTRrVXJ4VzVqeUJ2R0NTVUNkR1Y3OEdUSnBSdXhBa25YSUczWTB2bHNMOTVLcFgxZE01dWRVUEtqZWpTTi0yMDUweHJ4WkFGbVk3eTE0NUx1MWJZNWZySl82RDdSWjJrLUFCTEJhWHdLY0UxcGJB?oc=5",
+   "title": "Mabuhay TCG Fiesta Celebrates Trading Cards and Filipino Fiesta Culture - When In Manila",
+   "source": "When In Manila",
+   "date": "2026-11-13",
+   "bereich": "tcg",
+   "kategorie": "Event",
+   "spiel": "",
+   "zusammenfassung": "Das Mabuhay TCG Fiesta in Manila feiert Trading Cards und die philippinische Fiesta-Kultur."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBUdnI5WkZjNlZnRVdKMHBSZ1lFVGRaRDQ0MUJMY3NnZ3dVel83V1hvNzlOdVF2amw2MFczS1RyY2tNOEJDSW9xRG0yOWhWZk82VlNYU2hiWVpEdEl3UUFSQTJRYWpoalJOM1BYMkdoemNDWHBpLUpr?oc=5",
+   "title": "Cyberpunk TCG will reveal new Edgerunners: Burn Bright cards and mechanics during Chicago Regional - Kanto Post",
+   "source": "Kanto Post",
+   "date": "2026-11-13",
+   "bereich": "tcg",
+   "kategorie": "TCG-Ankündigung",
+   "spiel": "Cyberpunk TCG",
+   "zusammenfassung": "Cyberpunk TCG zeigt auf dem Chicago Regional neue Karten und Mechaniken zu Edgerunners: Burn Bright."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQRXRQUkhzU0ZNNkZZU3d5Tm5pWTdOdDdwMVVpLXFuZDBZNHNfVkh2bXh0TEJmYmRpMDZRZnVxYXZaMTgzQ2JWdTJHLVI0czd3X0xuOGEwQk04ekFRdmZBUjdrVmg3OEFGTk5Gb2xxMHd0c1ZwNnZBMmVqUTFFdzhQeXNTQnJPSTNuVjVUamtMdVUwNnRDODNxSThFajJtYjBQcUVlR1ZJQzc0OUxkZzViZ3RZSFZEMHBOVnZv?oc=5",
+   "title": "Tabletop Roundup: Corvus Belli 25th Anniversary, Cohors Cthulhu: Tactics, & More - Bell of Lost Souls",
+   "source": "Bell of Lost Souls",
+   "date": "2026-11-12",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "",
+   "zusammenfassung": "Tabletop-Roundup mit Meldungen unter anderem zum 25. Jubiläum von Corvus Belli und zu Cohors Cthulhu: Tactics."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1MSHVnNjIxbXhJLWhKSjExUEZXdTBobVRieW4wMHJhTldTbTNxdFV2VDRuS3lRa3dpbG83anAtM2U2ek1relQzcFBVV2QzbW54eVE4WWwwMFNyVzZibjdfdUtZWVVxSkVPeFE4?oc=5",
+   "title": "Cult of the Lamb: The Board Game Heads to Retail Shelves in June 2027 - GodisaGeek.com",
+   "source": "GodisaGeek.com",
+   "date": "2026-11-12",
+   "bereich": "tabletop",
+   "kategorie": "Hersteller",
+   "spiel": "Cult of the Lamb: The Board Game",
+   "zusammenfassung": "Das Brettspiel Cult of the Lamb kommt im Juni 2027 in den Einzelhandel."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBmaFpIQ3JvRXVyYUdkSHpvamV4d2FCOWtqNDBFNkJGUm1UOFpHdUo2SDlRTGxEQ1BUVjM4enBBZWFXRHdJSGdoTmJ2WlRQTmFRQ0NKZ0dWSFdjRENaNUVFR2NDa3Bra1NnOWs3WGp4TVd3NjN5OWVXcG56Zk4?oc=5",
+   "title": "Europe Regional Championship - Mobalytics",
+   "source": "Mobalytics",
+   "date": "2026-11-12",
+   "bereich": "tcg",
+   "kategorie": "Event",
+   "spiel": "Riftbound",
+   "zusammenfassung": "Für Riftbound wird eine Europe Regional Championship gemeldet."
   },
   {
    "url": "https://limitlesstcg.com/tournaments/584",
@@ -203,13 +467,13 @@
   },
   {
    "url": "https://limitlesstcg.com/tournaments/583",
-   "title": "Regional Puebla",
+   "title": "Regional Puebla (2.234 Spieler)",
    "source": "Limitless TCG",
    "date": "2026-10-24",
    "bereich": "tcg",
    "kategorie": "Event",
    "spiel": "Pokémon TCG",
-   "zusammenfassung": "Pokémon-TCG-Regional in Puebla am 24.10.2026 mit 2234 Spielern. Veranstalter wird im Text nicht genannt."
+   "zusammenfassung": "Regional-Turnier in Puebla am 24. Oktober 2026 mit 2.234 Spielern."
   }
  ]
 }
