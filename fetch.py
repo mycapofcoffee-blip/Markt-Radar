@@ -34,6 +34,10 @@ SUCHEN = [
     ("Google News", gn('"Union Arena" OR "Grand Archive" OR "Sorcery: Contested Realm" OR "Altered TCG" OR "Digimon Card Game" OR "Weiss Schwarz" OR "Shadowverse" announced OR tournament'), "tcg"),
     ("Google News", gn('TCG tournament series OR "world championship" OR "organized play" announced'), "tcg"),
     ("Google News", gn('Sammelkartenspiel neu OR Turnier OR Ankündigung TCG', de=True), "tcg"),
+    # Kunden-Chancen: Turnierserien, Übertragungen, Partnerschaften
+    ("Google News", gn('"championship series" OR "world championship" OR "organized play" "card game" OR wargame OR miniatures stream OR broadcast OR livestream'), "tcg"),
+    ("Google News", gn('tabletop OR wargame OR "trading card game" tournament sponsor OR partnership OR "media partner" OR esports'), "tabletop"),
+    ("Google News", gn('Regional Championship OR "Grand Prix" OR "Open" new tournament circuit announced card game OR miniatures'), "tcg"),
 ]
 
 def sammeln():
@@ -58,16 +62,20 @@ def sammeln():
     print(len(items), "Meldungen gesammelt")
     return items[:240]
 
-PROMPT = """Du filterst Meldungen für einen Business-Development-Manager, der Übertragungen und Wettbewerbs-Events an Hersteller von Tabletop- und Sammelkartenspielen verkauft.
-Behalte NUR Meldungen, die dafür wirklich nützlich sind:
-- Tabletop: Turniere und Events (wo, wer veranstaltet), und was Hersteller außer Games Workshop gerade tun. Games Workshop nur bei Events.
-- TCG: Ankündigungen, neue oder kleine TCGs, die wachsen könnten, Trends, worüber Spieler sprechen.
-Verwirf alles andere, besonders: Rezensionen, Angebote, Listicles, Taktik- und Meta-Berichte, Interviews mit Turniergewinnern, Turnier-Wochenend-Zusammenfassungen (Weekend Update), Rollenspiel-, Videospiel- und Kunst-Meldungen ohne Tabletop- oder TCG-Turnier.
-Games Workshop (Warhammer): nur behalten, wenn ein konkretes Event oder Turnier angekündigt wird (Ort, Datum, Veranstalter). Nicht behalten: Meta, Listen, Interviews, Ergebnisberichte.
-Behalte IMMER die Wochenübersicht "Games Industry News Roundup" (Kategorie Hersteller).
-Behalte zusätzlich Geschäftszahlen, Übernahmen und Vertriebsdeals von Tabletop-/TCG-Firmen (Kategorie Hersteller).
+PROMPT = """Du filterst Meldungen für einen Business-Development-Manager. Seine Firma verkauft Übertragungen (Broadcasts) und Wettbewerbs-Events an Hersteller und Veranstalter von Miniatur-Wargames und Sammelkartenspielen (TCG).
+
+Wichtigste Kategorie ist "Chance": mögliche Kunden, die Turniere veranstalten oder planen und Übertragungen brauchen könnten. Dazu zählen: Hersteller und Veranstalter von Wargame- oder TCG-Turnieren, Turnierserien, Weltmeisterschaften, Regionals, Meisterschaften, Ligen, Organized Play, Messen mit Turnieren, neue Turnierformate sowie Medien-, Streaming- und Sponsoring-Partnerschaften. Behalte SOLCHE Meldungen immer, auch wenn sie klein sind. Nenne in der Zusammenfassung, soweit im Text: wer veranstaltet, was, wann, wo, und ob eine Übertragung erwähnt wird (sonst schreibe "Übertragung nicht erwähnt").
+
+Behalte außerdem:
+- Neue oder kleine TCGs und Miniaturenspiele, die wachsen könnten, Ankündigungen und Trends (Kategorien TCG-Ankündigung, TCG-Trend).
+- Geschäftszahlen, Übernahmen und Vertriebsdeals von Wargame-/TCG-Firmen (Kategorie Hersteller).
+- IMMER die Wochenübersicht "Games Industry News Roundup" (Kategorie Hersteller).
+- Games Workshop (Warhammer) nur, wenn ein konkretes Event oder Turnier mit Ort, Datum und Veranstalter angekündigt wird.
+
+Verwirf alles andere, besonders: Wer ein Turnier gewonnen hat, Ergebnisse, Siegerlisten, Interviews mit Spielern, Meta-Statistiken und Deck-Anteile, Taktik, Rezensionen, Angebote, Listicles, Wochenend-Zusammenfassungen von Turnieren. Verwirf Brettspiele, Rollenspiele, Videospiele, Crowdfunding von Brettspielen und Kunst-Meldungen. Ausnahme: Es geht um ein Wargame oder TCG oder um ein Turnier dafür.
+
 Fasse nur zusammen, was in Titel und Text steht. Erfinde nichts.
-Antworte ausschließlich mit einem JSON-Array. Pro behaltene Meldung: {"i": Nummer, "bereich": "tabletop" oder "tcg", "kategorie": "Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend", "spiel": "Name oder leer", "zusammenfassung": "1-2 Sätze auf Deutsch"}.
+Antworte ausschließlich mit einem JSON-Array. Pro behaltene Meldung: {"i": Nummer, "bereich": "tabletop" oder "tcg", "kategorie": "Chance" | "Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend", "spiel": "Name oder leer", "zusammenfassung": "1-2 Sätze auf Deutsch"}.
 
 Meldungen:
 """
@@ -109,10 +117,10 @@ SEITEN = [
 ]
 
 SEITEN_PROMPT = """Aus dem Seitentext unten: hole alles heraus, was für einen Business-Development-Manager nützlich ist, der Übertragungen und Wettbewerbs-Events an Tabletop- und TCG-Hersteller verkauft.
-Tabletop-Seiten: kommende Turniere und Events (Name, Ort, Datum, Spiel, Spielerzahl, Veranstalter, soweit genannt), sonst neue relevante Meldungen. Games Workshop nur bei Events.
+Kategorie Chance: Turniere, Turnierserien und Events von Wargame- oder TCG-Veranstaltern, die Übertragungen brauchen könnten; nenne Veranstalter, Ort, Datum und ob eine Übertragung erwähnt wird. Keine Ergebnisse, Sieger, Meta oder Brettspiele.\nTabletop-Seiten: kommende Turniere und Events (Name, Ort, Datum, Spiel, Spielerzahl, Veranstalter, soweit genannt), sonst neue relevante Meldungen. Games Workshop nur bei Events.
 TCG-Seiten: Ankündigungen, neue oder kleine TCGs, Trends, größere Turniere.
 Nur Dinge, die im Text stehen, nichts erfinden. Die URL muss exakt aus den Links im Text stammen (steht in eckigen Klammern hinter dem Linktext).
-Antworte nur mit einem JSON-Array aus Objekten: {"title","url","date":"JJJJ-MM-TT oder leer","bereich":"tabletop" oder "tcg","kategorie":"Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend","spiel","zusammenfassung":"1-2 Sätze auf Deutsch"}.
+Antworte nur mit einem JSON-Array aus Objekten: {"title","url","date":"JJJJ-MM-TT oder leer","bereich":"tabletop" oder "tcg","kategorie":"Chance" | "Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend","spiel","zusammenfassung":"1-2 Sätze auf Deutsch"}.
 
 Seitentext:
 """
@@ -158,18 +166,19 @@ def seiten_lesen():
 TAGE_DE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
 
-BRIEF_PROMPT = """Schreibe den Morgenbrief für Gerrit. Er arbeitet im Business Development bei einem Unternehmen, das Übertragungen und Wettbewerbs-Events an Tabletop- und TCG-Hersteller verkauft, und liest den Brief morgens beim Kaffee oder lässt ihn sich vorlesen.
+BRIEF_PROMPT = """Schreibe den Morgenbrief für Gerrit. Er arbeitet im Business Development bei einem Unternehmen, das Übertragungen (Broadcasts) und Wettbewerbs-Events an Hersteller und Veranstalter von Miniatur-Wargames und Sammelkartenspielen verkauft. Er liest den Brief morgens beim Kaffee oder lässt ihn sich vorlesen.
 
-Ton: freundlich, klar und ruhig, wie ein netter Kollege, der beim Kaffee kurz berichtet. Du-Form. Kurze Sätze, einfache Wörter, keine Fachjargon-Ketten. Wenige englische Begriffe.
+Wichtig für Gerrit: mögliche Kunden, die Turniere veranstalten und Übertragungen brauchen könnten. Darüber will er alles wissen, immer. Nicht interessant für ihn: wer ein Turnier gewonnen hat, Ergebnisse, Meta-Statistiken, Brettspiele.
+
+Ton: freundlich, klar und ruhig, wie ein netter Kollege, der beim Kaffee kurz berichtet. Du-Form. Kurze Sätze, einfache Wörter. Wenige englische Begriffe.
 Form für Vorlesen: reiner Fließtext in kurzen Absätzen, durch Leerzeilen getrennt. Keine Aufzählungszeichen, keine Überschriften mit Sonderzeichen, keine Links, keine Klammern, keine Emojis.
 Aufbau:
 1. Begrüßung mit dem heutigen Datum: {datum}.
-2. Das Wichtigste in ein bis zwei Sätzen.
-3. Tabletop: was passiert, welche Turniere und Events sind angekündigt.
-4. TCG: was ist neu, und besonders: welche kleineren oder neuen Spiele fallen auf und worüber wird gesprochen.
-5. Mögliche Ansatzpunkte für das Geschäft: nur wenn sie sich klar aus den Meldungen ergeben, zum Beispiel ein neues Turnier ohne Übertragung. Sonst weglassen.
-6. Ein kurzer freundlicher Abschluss.
-Regeln: Nutze ausschließlich Fakten aus den Meldungen unten, erfinde nichts und nenne die Quelle im Satz (zum Beispiel: laut Goonhammer). Gib nur Daten und Zahlen an, die in den Meldungen stehen. Ist wenig los, sag das ehrlich und kurz. Länge: etwa 300 bis 400 Wörter, nicht mehr.
+2. Kunden und Chancen (der größte Teil): Gehe alle Meldungen der Kategorie Chance durch, nichts auslassen. Nenne pro Eintrag: wer veranstaltet, was, wann, wo, und ob eine Übertragung erwähnt wird. Steht dazu nichts in der Meldung, sag, dass es offen ist und eine Nachfrage lohnt. Fasse ähnliche Einträge zusammen, aber nenne die Namen. Sortiere: zuerst Wargames, dann TCG, zuerst das, was bald stattfindet.
+3. Kurz Tabletop: was bei Herstellern passiert (Geschäftszahlen, neue Spiele, Veranstaltungen).
+4. Kurz TCG: neue oder kleinere Spiele, die auffallen, und worüber gesprochen wird.
+5. Ein freundlicher Abschluss.
+Regeln: Nutze ausschließlich Fakten aus den Meldungen unten, erfinde nichts, und nenne die Quelle im Satz (zum Beispiel: laut Limitless). Gib nur Daten und Zahlen an, die in den Meldungen stehen. Ist wenig los, sag das ehrlich. Länge: etwa 400 bis 550 Wörter. Mehr nur, wenn sehr viele Chancen vorliegen.
 
 Meldungen der letzten Tage:
 """
@@ -177,7 +186,8 @@ Meldungen der letzten Tage:
 def morgenbrief(items):
     heute = dt.date.today()
     grenze = (heute - dt.timedelta(days=7)).isoformat()
-    frisch = [x for x in items if x["date"] >= grenze][:40]
+    alle_frisch = [x for x in items if x["date"] >= grenze]
+    frisch = [x for x in alle_frisch if x["kategorie"] == "Chance"][:30] + [x for x in alle_frisch if x["kategorie"] != "Chance"][:15]
     if not frisch:
         return None
     liste = "\n".join(f"- [{x['bereich']}, {x['kategorie']}] {x['title']} ({x['source']}, {x['date']}): {x['zusammenfassung']}" for x in frisch)
