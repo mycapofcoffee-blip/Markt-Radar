@@ -15,6 +15,7 @@ button{border:1px solid var(--line);background:var(--chip);color:var(--ink);bord
 button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px}
 .card h3{font-size:15px;margin:0 0 4px}.meta{font-size:12.5px;color:var(--mut);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.brief p{margin:0 0 10px;font-size:16px;line-height:1.6}.brief{border-color:var(--acc)}
 .tag{background:var(--chip);border-radius:6px;padding:1px 7px}.card p{margin:4px 0}a{color:var(--acc)}.links{font-size:13px;display:flex;gap:14px}
 </style>
 </head>
@@ -22,6 +23,7 @@ button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:
 <main>
 <h1>Markt-Radar</h1>
 <p class="sub" id="stand">Lade …</p>
+<div class="card brief" id="brief" style="display:none"><h3>Morgenbrief</h3><div class="meta" id="bdatum"></div><div id="btext"></div><div class="row"><button id="play">Vorlesen</button><button id="stop">Stopp</button></div></div>
 <div class="row" id="b"></div>
 <div class="row" id="k"></div>
 <div id="liste"></div>
@@ -39,7 +41,12 @@ var h="";items.filter(function(x){return K==="Alle"||x.kategorie===K}).forEach(f
 var q=encodeURIComponent("Ich möchte mehr zu dieser Meldung wissen: "+x.title+" ("+x.url+"). Recherchiere Hintergründe, Quellen und was das für Übertragungen und Wettbewerbs-Events bedeutet.");
 h+='<div class="card"><h3>'+esc(x.title)+'</h3><div class="meta"><span class="tag">'+esc(x.kategorie)+'</span>'+(x.spiel?'<span>'+esc(x.spiel)+'</span>':'')+'<span>'+esc(x.source)+'</span><span>'+esc(x.date)+'</span></div><p>'+esc(x.zusammenfassung)+'</p><div class="links"><a href="'+esc(x.url)+'" rel="noopener">Quelle</a><a href="https://claude.ai/new?q='+q+'" rel="noopener">Mehr Infos</a></div></div>'});
 document.getElementById("liste").innerHTML=h||"<p class='sub'>Noch keine Einträge.</p>"}
-fetch("data.json").then(function(r){return r.json()}).then(function(j){D=j.items;document.getElementById("stand").textContent="Stand: "+j.stand.replace("T"," ").slice(0,16)+" UTC";draw()}).catch(function(){document.getElementById("stand").textContent="Noch keine Daten. Den Workflow einmal starten."});
+function brief(j){var b=j.brief;if(!b||!b.text)return;document.getElementById("brief").style.display="";document.getElementById("bdatum").textContent=b.datum;
+var t=document.getElementById("btext");t.innerHTML="";var ps=b.text.split(/\n\s*\n/);ps.forEach(function(p){var e=document.createElement("p");e.textContent=p;t.appendChild(e)});
+var sy=window.speechSynthesis;if(!sy){document.getElementById("play").style.display="none";document.getElementById("stop").style.display="none";return}
+document.getElementById("play").onclick=function(){sy.cancel();var v=sy.getVoices().filter(function(x){return x.lang&&x.lang.toLowerCase().indexOf("de")===0})[0];ps.forEach(function(p){var u=new SpeechSynthesisUtterance(p);u.lang="de-DE";if(v)u.voice=v;u.rate=0.95;sy.speak(u)})};
+document.getElementById("stop").onclick=function(){sy.cancel()}}
+fetch("data.json").then(function(r){return r.json()}).then(function(j){D=j.items;brief(j);document.getElementById("stand").textContent="Stand: "+j.stand.replace("T"," ").slice(0,16)+" UTC";draw()}).catch(function(){document.getElementById("stand").textContent="Noch keine Daten. Den Workflow einmal starten."});
 </script>
 </body>
 </html>
