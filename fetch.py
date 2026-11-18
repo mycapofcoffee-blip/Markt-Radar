@@ -1,4 +1,4 @@
-import json, os, re, time, datetime as dt, urllib.parse
+import json, os, re, time, difflib, datetime as dt, urllib.parse
 import feedparser
 from anthropic import Anthropic
 
@@ -34,6 +34,8 @@ SUCHEN = [
     ("Google News", gn('"Union Arena" OR "Grand Archive" OR "Sorcery: Contested Realm" OR "Altered TCG" OR "Digimon Card Game" OR "Weiss Schwarz" OR "Shadowverse" announced OR tournament'), "tcg"),
     ("Google News", gn('TCG tournament series OR "world championship" OR "organized play" announced'), "tcg"),
     ("Google News", gn('Sammelkartenspiel neu OR Turnier OR Ankündigung TCG', de=True), "tcg"),
+    # Bekannte Wargaming-Events und -Turnierserien
+    ("Google News", gn('Adepticon OR "NOVA Open" OR "Las Vegas Open" OR "Frontline Gaming" OR "Independent Tournament Circuit" OR "Warhammer Fest" OR "Bolt Action" OR "Trench Crusade" OR "Flames of War" event OR tournament OR championship'), "tabletop"),
     # Kunden-Chancen: Turnierserien, Übertragungen, Partnerschaften
     ("Google News", gn('"championship series" OR "world championship" OR "organized play" "card game" OR wargame OR miniatures stream OR broadcast OR livestream'), "tcg"),
     ("Google News", gn('tabletop OR wargame OR "trading card game" tournament sponsor OR partnership OR "media partner" OR esports'), "tabletop"),
@@ -62,7 +64,7 @@ def sammeln():
     print(len(items), "Meldungen gesammelt")
     return items[:240]
 
-PROMPT = """Du filterst Meldungen für einen Business-Development-Manager. Seine Firma verkauft Übertragungen (Broadcasts) und Wettbewerbs-Events an Hersteller und Veranstalter von Miniatur-Wargames und Sammelkartenspielen (TCG).
+PROMPT = """Heute ist {heute}. Du filterst Meldungen für einen Business-Development-Manager. Seine Firma verkauft Übertragungen (Broadcasts) und Wettbewerbs-Events an Hersteller und Veranstalter von Miniatur-Wargames und Sammelkartenspielen (TCG).
 
 Wichtigste Kategorie ist "Chance": mögliche Kunden, die Turniere veranstalten oder planen und Übertragungen brauchen könnten. Dazu zählen: Hersteller und Veranstalter von Wargame- oder TCG-Turnieren, Turnierserien, Weltmeisterschaften, Regionals, Meisterschaften, Ligen, Organized Play, Messen mit Turnieren, neue Turnierformate sowie Medien-, Streaming- und Sponsoring-Partnerschaften. Behalte SOLCHE Meldungen immer, auch wenn sie klein sind. Nenne in der Zusammenfassung, soweit im Text: wer veranstaltet, was, wann, wo, und ob eine Übertragung erwähnt wird (sonst schreibe "Übertragung nicht erwähnt").
 
@@ -74,6 +76,7 @@ Behalte außerdem:
 
 Verwirf alles andere, besonders: Wer ein Turnier gewonnen hat, Ergebnisse, Siegerlisten, Interviews mit Spielern, Meta-Statistiken und Deck-Anteile, Taktik, Rezensionen, Angebote, Listicles, Wochenend-Zusammenfassungen von Turnieren. Verwirf Brettspiele, Rollenspiele, Videospiele, Crowdfunding von Brettspielen und Kunst-Meldungen. Ausnahme: Es geht um ein Wargame oder TCG oder um ein Turnier dafür.
 
+Bereits stattgefundene Turniere verwerfen, außer die Spielerzahl wird genannt und liegt bei 300 oder mehr (zeigt, wie groß der Veranstalter ist). Verwirf auch reine Ergebnislisten.
 Fasse nur zusammen, was in Titel und Text steht. Erfinde nichts.
 Antworte ausschließlich mit einem JSON-Array. Pro behaltene Meldung: {"i": Nummer, "bereich": "tabletop" oder "tcg", "kategorie": "Chance" | "Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend", "spiel": "Name oder leer", "zusammenfassung": "1-2 Sätze auf Deutsch"}.
 
@@ -90,7 +93,7 @@ def filtern(items):
         liste = "\n".join(f"{i}. {x['title']} | {x['source']} | {x['text']}" for i, x in enumerate(teil))
         try:
             r = client.messages.create(model="claude-haiku-5-5", max_tokens=8000,
-                                       messages=[{"role": "user", "content": PROMPT + liste}])
+                                       messages=[{"role": "user", "content": PROMPT.replace("{heute}", dt.date.today().isoformat()) + liste}])
             if r.stop_reason == "max_tokens":
                 print("Warnung: Antwort in Päckchen", start, "abgeschnitten")
             text = "".join(b.text for b in r.content if b.type == "text").strip()
@@ -116,7 +119,8 @@ SEITEN = [
     ("Limitless Play", "https://play.limitlesstcg.com/", "tcg"),
 ]
 
-SEITEN_PROMPT = """Aus dem Seitentext unten: hole alles heraus, was für einen Business-Development-Manager nützlich ist, der Übertragungen und Wettbewerbs-Events an Tabletop- und TCG-Hersteller verkauft.
+SEITEN_PROMPT = """Heute ist {heute}. Ist die Seite eine Fehlerseite, leer oder zeigt nur Menüpunkte, antworte mit []. Verwirf Ergebnislisten, Sieger, Meta-Statistiken (Deck-Anteile), Brettspiele und bereits stattgefundene Turniere (außer mit 300 oder mehr Spielern).
+Aus dem Seitentext unten: hole alles heraus, was für einen Business-Development-Manager nützlich ist, der Übertragungen und Wettbewerbs-Events an Tabletop- und TCG-Hersteller verkauft.
 Kategorie Chance: Turniere, Turnierserien und Events von Wargame- oder TCG-Veranstaltern, die Übertragungen brauchen könnten; nenne Veranstalter, Ort, Datum und ob eine Übertragung erwähnt wird. Keine Ergebnisse, Sieger, Meta oder Brettspiele.\nTabletop-Seiten: kommende Turniere und Events (Name, Ort, Datum, Spiel, Spielerzahl, Veranstalter, soweit genannt), sonst neue relevante Meldungen. Games Workshop nur bei Events.
 TCG-Seiten: Ankündigungen, neue oder kleine TCGs, Trends, größere Turniere.
 Nur Dinge, die im Text stehen, nichts erfinden. Die URL muss exakt aus den Links im Text stammen (steht in eckigen Klammern hinter dem Linktext).
@@ -150,7 +154,7 @@ def seiten_lesen():
             continue
         try:
             r = client.messages.create(model="claude-haiku-5-5", max_tokens=6000,
-                                       messages=[{"role": "user", "content": SEITEN_PROMPT + f"Seite: {name} ({bereich})\n" + text}])
+                                       messages=[{"role": "user", "content": SEITEN_PROMPT.replace("{heute}", dt.date.today().isoformat()) + f"Seite: {name} ({bereich})\n" + text}])
             raw = re.sub(r"^```(json)?|```$", "", "".join(b.text for b in r.content if b.type == "text").strip(), flags=re.M).strip()
             for k in json.loads(raw):
                 if k.get("url") in links:
@@ -196,6 +200,24 @@ def morgenbrief(items):
                                     messages=[{"role": "user", "content": BRIEF_PROMPT.replace("{datum}", datum) + liste}])
     return "".join(b.text for b in r.content if b.type == "text").strip()
 
+def entdoppeln(items):
+    """Gleiche Meldungen aus mehreren Quellen zusammenführen; Chancen haben Vorrang."""
+    out, gesehen = [], []
+    for x in sorted(items, key=lambda x: x["kategorie"] != "Chance"):
+        t = re.sub(r"\W+", " ", x["title"].lower()).strip()
+        doppelt = False
+        for d, q, u in gesehen:
+            if d != x["date"]:
+                continue
+            r = difflib.SequenceMatcher(None, t, u).ratio()
+            if r >= (0.95 if q == x["source"] else 0.55):
+                doppelt = True
+                break
+        if not doppelt:
+            gesehen.append((x["date"], x["source"], t))
+            out.append(x)
+    return out
+
 def main():
     try:
         alt_daten = json.load(open("data.json", encoding="utf-8"))
@@ -205,7 +227,7 @@ def main():
     neu = filtern(sammeln()) + seiten_lesen()
     grenze = (dt.date.today() - dt.timedelta(days=BEHALTEN)).isoformat()
     alle = {x["url"]: x for x in alt + neu if x["date"] >= grenze}
-    items = sorted(alle.values(), key=lambda x: x["date"], reverse=True)
+    items = sorted(entdoppeln(list(alle.values())), key=lambda x: x["date"], reverse=True)
     brief = alt_daten.get("brief")
     try:
         text = morgenbrief(items)
