@@ -23,7 +23,9 @@ SUCHEN = [
     ("Google News", gn('upcoming trading card game indie OR "new card game" tournament'), "tcg"),
     # Branchenseiten
     ("Google News", gn('site:icv2.com tabletop OR "card game" OR miniatures'), "tabletop"),
-    ("Google News", gn('site:wargamer.com OR site:beastsofwar.com OR site:belloflostsouls.net tournament OR event'), "tabletop"),
+    ("Google News", gn('site:wargamer.com OR site:beastsofwar.com OR site:belloflostsouls.net wargame OR miniatures OR skirmish OR "pre-order" OR tournament OR event'), "tabletop"),
+    ("Google News", gn('"miniature wargame" OR "skirmish wargame" OR "miniatures game" announced OR "pre-order" OR Kickstarter OR Gamefound'), "tabletop"),
+    ("Google News", gn('new wargame OR "new miniatures game" OR "new skirmish game" licensed OR "Monster Fight Club" OR "Atomic Mass" OR "Corvus Belli" OR "Mantic"'), "tabletop"),
     ("Google News", gn('site:gamingtrend.com boardgamewire OR tabletop'), "tabletop"),
     # Tabletop-Spiele und Veranstaltungen
     ("Google News", gn('"Old World" OR "Marvel Crisis Protocol" OR "Star Wars Legion" OR "Battletech" OR "Infinity" OR "Warcrow" OR "Kill Team" tournament OR championship OR open'), "tabletop"),
@@ -68,6 +70,8 @@ PROMPT = """Heute ist {heute}. Du filterst Meldungen für einen Business-Develop
 
 Wichtigste Kategorie ist "Chance": mögliche Kunden, die Turniere veranstalten oder planen und Übertragungen brauchen könnten. Dazu zählen: Hersteller und Veranstalter von Wargame- oder TCG-Turnieren, Turnierserien, Weltmeisterschaften, Regionals, Meisterschaften, Ligen, Organized Play, Messen mit Turnieren, neue Turnierformate sowie Medien-, Streaming- und Sponsoring-Partnerschaften. Behalte SOLCHE Meldungen immer, auch wenn sie klein sind. Nenne in der Zusammenfassung, soweit im Text: wer veranstaltet, was, wann, wo, und ob eine Übertragung erwähnt wird (sonst schreibe "Übertragung nicht erwähnt").
 
+Zweite wichtige Kategorie ist "Neues Spiel": neue Miniatur-Wargames, Skirmish-Spiele, TCGs und Kartenspiele sowie ihre Hersteller, mögliche künftige Kunden. Dazu zählen Ankündigungen, Vorbestellungen und Crowdfunding-Kampagnen (Gamefound, Kickstarter), besonders bei Wettbewerbsmodus, Lizenzpartnern (z. B. bekannte Marken) oder hohen Summen. Nenne in der Zusammenfassung: Spiel, Hersteller, Lizenzpartner, ob es einen Wettbewerbs- oder Turniermodus gibt, Stand (Vorbestellung, Kampagne, Release) und Preis oder Summe, soweit im Text. Beispiel: ein neues Witcher-Skirmish-Wargame mit Vorbestellung über Gamefound.
+
 Behalte außerdem:
 - Neue oder kleine TCGs und Miniaturenspiele, die wachsen könnten, Ankündigungen und Trends (Kategorien TCG-Ankündigung, TCG-Trend).
 - Geschäftszahlen, Übernahmen und Vertriebsdeals von Wargame-/TCG-Firmen (Kategorie Hersteller).
@@ -78,7 +82,7 @@ Verwirf alles andere, besonders: Wer ein Turnier gewonnen hat, Ergebnisse, Siege
 
 Bereits stattgefundene Turniere verwerfen, außer die Spielerzahl wird genannt und liegt bei 300 oder mehr (zeigt, wie groß der Veranstalter ist). Verwirf auch reine Ergebnislisten.
 Fasse nur zusammen, was in Titel und Text steht. Erfinde nichts.
-Antworte ausschließlich mit einem JSON-Array. Pro behaltene Meldung: {"i": Nummer, "bereich": "tabletop" oder "tcg", "kategorie": "Chance" | "Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend", "spiel": "Name oder leer", "zusammenfassung": "1-2 Sätze auf Deutsch"}.
+Antworte ausschließlich mit einem JSON-Array. Pro behaltene Meldung: {"i": Nummer, "bereich": "tabletop" oder "tcg", "kategorie": "Chance" | "Neues Spiel" | "Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend", "spiel": "Name oder leer", "zusammenfassung": "1-2 Sätze auf Deutsch"}.
 
 Meldungen:
 """
@@ -121,10 +125,10 @@ SEITEN = [
 
 SEITEN_PROMPT = """Heute ist {heute}. Ist die Seite eine Fehlerseite, leer oder zeigt nur Menüpunkte, antworte mit []. Verwirf Ergebnislisten, Sieger, Meta-Statistiken (Deck-Anteile), Brettspiele und bereits stattgefundene Turniere (außer mit 300 oder mehr Spielern).
 Aus dem Seitentext unten: hole alles heraus, was für einen Business-Development-Manager nützlich ist, der Übertragungen und Wettbewerbs-Events an Tabletop- und TCG-Hersteller verkauft.
-Kategorie Chance: Turniere, Turnierserien und Events von Wargame- oder TCG-Veranstaltern, die Übertragungen brauchen könnten; nenne Veranstalter, Ort, Datum und ob eine Übertragung erwähnt wird. Keine Ergebnisse, Sieger, Meta oder Brettspiele.\nTabletop-Seiten: kommende Turniere und Events (Name, Ort, Datum, Spiel, Spielerzahl, Veranstalter, soweit genannt), sonst neue relevante Meldungen. Games Workshop nur bei Events.
+Kategorie Neues Spiel: neue Wargames, Skirmish-Spiele, TCGs mit Hersteller, Stand (Vorbestellung, Release) und Wettbewerbsmodus. Kategorie Chance: Turniere, Turnierserien und Events von Wargame- oder TCG-Veranstaltern, die Übertragungen brauchen könnten; nenne Veranstalter, Ort, Datum und ob eine Übertragung erwähnt wird. Keine Ergebnisse, Sieger, Meta oder Brettspiele.\nTabletop-Seiten: kommende Turniere und Events (Name, Ort, Datum, Spiel, Spielerzahl, Veranstalter, soweit genannt), sonst neue relevante Meldungen. Games Workshop nur bei Events.
 TCG-Seiten: Ankündigungen, neue oder kleine TCGs, Trends, größere Turniere.
 Nur Dinge, die im Text stehen, nichts erfinden. Die URL muss exakt aus den Links im Text stammen (steht in eckigen Klammern hinter dem Linktext).
-Antworte nur mit einem JSON-Array aus Objekten: {"title","url","date":"JJJJ-MM-TT oder leer","bereich":"tabletop" oder "tcg","kategorie":"Chance" | "Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend","spiel","zusammenfassung":"1-2 Sätze auf Deutsch"}.
+Antworte nur mit einem JSON-Array aus Objekten: {"title","url","date":"JJJJ-MM-TT oder leer","bereich":"tabletop" oder "tcg","kategorie":"Chance" | "Neues Spiel" | "Event" | "Hersteller" | "TCG-Ankündigung" | "TCG-Trend","spiel","zusammenfassung":"1-2 Sätze auf Deutsch"}.
 
 Seitentext:
 """
@@ -172,16 +176,17 @@ MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August"
 
 BRIEF_PROMPT = """Schreibe den Morgenbrief für Gerrit. Er arbeitet im Business Development bei einem Unternehmen, das Übertragungen (Broadcasts) und Wettbewerbs-Events an Hersteller und Veranstalter von Miniatur-Wargames und Sammelkartenspielen verkauft. Er liest den Brief morgens beim Kaffee oder lässt ihn sich vorlesen.
 
-Wichtig für Gerrit: mögliche Kunden, die Turniere veranstalten und Übertragungen brauchen könnten. Darüber will er alles wissen, immer. Nicht interessant für ihn: wer ein Turnier gewonnen hat, Ergebnisse, Meta-Statistiken, Brettspiele.
+Wichtig für Gerrit: mögliche Kunden, die Turniere veranstalten und Übertragungen brauchen könnten, und neue Wargames und TCGs mit ihren Herstellern. Darüber will er alles wissen, immer. Nicht interessant für ihn: wer ein Turnier gewonnen hat, Ergebnisse, Meta-Statistiken, reine Brettspiele.
 
 Ton: freundlich, klar und ruhig, wie ein netter Kollege, der beim Kaffee kurz berichtet. Du-Form. Kurze Sätze, einfache Wörter. Wenige englische Begriffe.
 Form für Vorlesen: reiner Fließtext in kurzen Absätzen, durch Leerzeilen getrennt. Keine Aufzählungszeichen, keine Überschriften mit Sonderzeichen, keine Links, keine Klammern, keine Emojis.
 Aufbau:
 1. Begrüßung mit dem heutigen Datum: {datum}.
 2. Kunden und Chancen (der größte Teil): Gehe alle Meldungen der Kategorie Chance durch, nichts auslassen. Nenne pro Eintrag: wer veranstaltet, was, wann, wo, und ob eine Übertragung erwähnt wird. Steht dazu nichts in der Meldung, sag, dass es offen ist und eine Nachfrage lohnt. Fasse ähnliche Einträge zusammen, aber nenne die Namen. Sortiere: zuerst Wargames, dann TCG, zuerst das, was bald stattfindet.
-3. Kurz Tabletop: was bei Herstellern passiert (Geschäftszahlen, neue Spiele, Veranstaltungen).
-4. Kurz TCG: neue oder kleinere Spiele, die auffallen, und worüber gesprochen wird.
-5. Ein freundlicher Abschluss.
+3. Neue Spiele und Hersteller: Gehe alle Meldungen der Kategorie Neues Spiel durch. Nenne Spiel, Hersteller, Lizenzpartner, Stand (Vorbestellung, Kampagne, Release), Preis oder Summe und ob es einen Wettbewerbsmodus gibt. Sag in einem Satz, warum der Hersteller ein möglicher Kunde für Turniere und Übertragungen werden könnte, aber nur, wenn die Meldung das hergibt.
+4. Kurz Tabletop: was bei Herstellern passiert (Geschäftszahlen, neue Spiele, Veranstaltungen).
+5. Kurz TCG: neue oder kleinere Spiele, die auffallen, und worüber gesprochen wird.
+6. Ein freundlicher Abschluss.
 Regeln: Nutze ausschließlich Fakten aus den Meldungen unten, erfinde nichts, und nenne die Quelle im Satz (zum Beispiel: laut Limitless). Gib nur Daten und Zahlen an, die in den Meldungen stehen. Ist wenig los, sag das ehrlich. Länge: etwa 400 bis 550 Wörter. Mehr nur, wenn sehr viele Chancen vorliegen.
 
 Meldungen der letzten Tage:
@@ -191,7 +196,9 @@ def morgenbrief(items):
     heute = dt.date.today()
     grenze = (heute - dt.timedelta(days=7)).isoformat()
     alle_frisch = [x for x in items if x["date"] >= grenze]
-    frisch = [x for x in alle_frisch if x["kategorie"] == "Chance"][:30] + [x for x in alle_frisch if x["kategorie"] != "Chance"][:15]
+    frisch = ([x for x in alle_frisch if x["kategorie"] == "Chance"][:30]
+              + [x for x in alle_frisch if x["kategorie"] == "Neues Spiel"][:20]
+              + [x for x in alle_frisch if x["kategorie"] not in ("Chance", "Neues Spiel")][:15])
     if not frisch:
         return None
     liste = "\n".join(f"- [{x['bereich']}, {x['kategorie']}] {x['title']} ({x['source']}, {x['date']}): {x['zusammenfassung']}" for x in frisch)
@@ -203,7 +210,7 @@ def morgenbrief(items):
 def entdoppeln(items):
     """Gleiche Meldungen aus mehreren Quellen zusammenführen; Chancen haben Vorrang."""
     out, gesehen = [], []
-    for x in sorted(items, key=lambda x: x["kategorie"] != "Chance"):
+    for x in sorted(items, key=lambda x: x["kategorie"] not in ("Chance", "Neues Spiel")):
         t = re.sub(r"\W+", " ", x["title"].lower()).strip()
         doppelt = False
         for d, q, u in gesehen:
