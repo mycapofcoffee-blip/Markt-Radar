@@ -90,7 +90,9 @@ def sammeln():
 # ---------- Filtern ----------
 PROMPT = """Heute ist {heute}. Du filterst Meldungen für einen Business-Development-Manager. Seine Firma verkauft Übertragungen (Broadcasts) und Wettbewerbs-Events an Hersteller und Veranstalter von Miniatur-Wargames und Sammelkartenspielen (TCG).
 
-Wichtigste Kategorie ist "Chance": Turnier- und Event-Ankündigungen von Herstellern und Veranstaltern weltweit. Dazu zählen: Turniere, Turnierserien, Weltmeisterschaften, Regionals, Meisterschaften, Ligen, Organized Play, Messen mit Turnieren, neue Turnierformate, Medien-, Streaming- und Sponsoring-Partnerschaften und auch, wenn ein Hersteller seine Turnierstruktur oder den Start seiner Turniere ankündigt ("jetzt geht es los, hier kannst du teilnehmen"). Behalte SOLCHE Meldungen immer, auch wenn sie klein sind. Nenne, soweit im Text: wer veranstaltet, was, wann, wo, wie man teilnimmt, und ob eine Übertragung erwähnt wird (sonst "Übertragung nicht erwähnt").
+Wichtigste Kategorie ist "Chance": offizielle, vom Hersteller (Publisher) getragene Turniere und Events weltweit, zum Beispiel Weltmeisterschaften, Regionals, Championships, Organized-Play-Programme und Turnierserien des Herstellers sowie Turniere auf Messen oder Events des Herstellers (Beispiele: Warhammer-Weltmeisterschaft in Barcelona, Cyberpunk-TCG-Event in Chicago, Riftbound-Event in Las Vegas). Dazu zählen auch Medien-, Streaming- und Sponsoring-Partnerschaften eines Herstellers und wenn ein Hersteller seine Turnierstruktur oder den Start seiner Turniere ankündigt. Behalte SOLCHE Meldungen immer.
+Turniere von Drittanbietern (Läden, Clubs, Vereine, Turnierveranstalter) sind NICHT interessant und werden verworfen. Ausnahme: wirklich sehr große Drittanbieter-Events, nämlich Welt- oder Europameisterschaften, Team-Weltmeisterschaften oder internationale Majors mit mehreren hundert Teilnehmern (ab etwa 300). Kleine, lokale oder regionale Turniere, Liga-Abende, wöchentliche Events, City Leagues und Shop-Events immer verwerfen.
+Nenne, soweit im Text: wer veranstaltet, was, wann, wo, wie man teilnimmt, und ob eine Übertragung erwähnt wird (sonst "Übertragung nicht erwähnt").
 
 Zweite wichtige Kategorie ist "Neues Spiel": neue Miniatur-Wargames, Skirmish-Spiele und neue TCGs samt Hersteller, mögliche künftige Kunden. Dazu zählen Ankündigungen, Vorbestellungen und Crowdfunding-Kampagnen (Gamefound, Kickstarter), besonders bei Wettbewerbsmodus, bekannten Lizenzpartnern oder hohen Summen. Nenne: Spiel, Hersteller, Lizenzpartner, Wettbewerbs- oder Turniermodus, Stand (Vorbestellung, Kampagne, Release), Preis oder Summe, soweit im Text.
 
@@ -98,7 +100,7 @@ Weitere Kategorien, nur wenn wirklich nützlich:
 - "Hersteller": News von Wargame- und TCG-Herstellern, die für Turniere, Wettbewerb, Übertragungen oder das Geschäft wichtig sind, außerdem Geschäftszahlen, Übernahmen und Vertriebsdeals. IMMER behalten: die Wochenübersicht "Games Industry News Roundup".
 - "TCG-Trend": nur, wenn Fans oder Medien über ein kleineres oder neues TCG sprechen, das gerade wächst.
 - "TCG-Ankündigung": nur für ein neues TCG oder einen neuen Hersteller.
-- "Event": sonstige kommende Veranstaltungen.
+- "Event": nur große kommende Veranstaltungen eines Herstellers, die keine Turniere sind (zum Beispiel Messen).
 
 Games Workshop (Warhammer) und andere große Hersteller: nur Meldungen zu Events, Turnieren, Turnierstruktur, Wettbewerb oder Übertragungen. Neue Sets, Modelle, Regeln und Preise verwerfen. Bei bekannten TCGs: neue Sets, Booster, Promo-Karten, Banlisten und Regeländerungen verwerfen.
 
@@ -198,7 +200,7 @@ SEITEN = [
 
 SEITEN_PROMPT = """Heute ist {heute}. Ist die Seite eine Fehlerseite, leer oder zeigt nur Menüpunkte, antworte mit [].
 Aus dem Seitentext unten: hole nur ein, was für einen Business-Development-Manager nützlich ist, der Übertragungen und Wettbewerbs-Events an Wargame- und TCG-Hersteller verkauft:
-- Event: kommende Turniere, Turnierserien, Organized Play, Meisterschaften (Veranstalter, Ort, Datum, Spiel, Anmeldung)
+- Event: nur offizielle, vom Hersteller getragene Turniere, Turnierserien, Organized Play und Meisterschaften, oder sehr große Drittanbieter-Events (Welt-/Europameisterschaften, Team-WM, Majors ab etwa 300 Teilnehmern). Kleine, lokale und regionale Turniere von Läden, Clubs und Veranstaltern, Liga-Abende und wöchentliche Events verwerfen. (Veranstalter, Ort, Datum, Spiel, Anmeldung)
 - Neues Spiel: neue Wargames, Skirmish-Spiele, TCGs mit Hersteller, Stand und Wettbewerbsmodus
 - Hersteller: Neuigkeiten zu Wettbewerb, Events, Übertragungen, Partnerschaften, Geschäft. Games Workshop nur dazu.
 Verwirf Ergebnislisten, Sieger, Meta-Statistiken (Deck-Anteile), Brettspiele, neue Sets bestehender Spiele und bereits stattgefundene Turniere (außer mit 300 oder mehr Spielern).
@@ -306,7 +308,7 @@ MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August"
 
 BRIEF_PROMPT = """Schreibe den Morgenbrief für Gerrit. Er arbeitet im Business Development bei einem Unternehmen, das Übertragungen (Broadcasts) und Wettbewerbs-Events an Hersteller und Veranstalter von Miniatur-Wargames und Sammelkartenspielen verkauft. Er liest den Brief morgens beim Kaffee oder lässt ihn sich vorlesen.
 
-Wichtig für Gerrit: Turnier- und Event-Ankündigungen von Herstellern und Veranstaltern weltweit, Turnierstrukturen und Organized Play, neue Wargames, Skirmish-Spiele und TCGs mit ihren Herstellern, und Hersteller-Neuigkeiten, die für Wettbewerb, Events oder Übertragungen wichtig sind. Darüber will er alles wissen, immer. Nicht interessant: wer gewonnen hat, Ergebnisse, Meta-Statistiken, neue Sets bestehender Spiele, Brettspiele.
+Wichtig für Gerrit: offizielle, vom Hersteller getragene Turniere und Events weltweit (Drittanbieter nur, wenn sie sehr groß sind, etwa Welt- oder Team-Weltmeisterschaften; kleine Turniere sind irrelevant), Turnierstrukturen und Organized Play, neue Wargames, Skirmish-Spiele und TCGs mit ihren Herstellern, und Hersteller-Neuigkeiten, die für Wettbewerb, Events oder Übertragungen wichtig sind. Darüber will er alles wissen, immer. Nicht interessant: wer gewonnen hat, Ergebnisse, Meta-Statistiken, neue Sets bestehender Spiele, Brettspiele.
 
 Ton: freundlich, klar und ruhig, wie ein netter Kollege, der beim Kaffee kurz berichtet. Du-Form. Kurze Sätze, einfache Wörter. Wenige englische Begriffe.
 Form für Vorlesen: reiner Fließtext in kurzen Absätzen, durch Leerzeilen getrennt. Keine Aufzählungszeichen, keine Überschriften mit Sonderzeichen, keine Links, keine Klammern, keine Emojis.
