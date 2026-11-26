@@ -11,6 +11,7 @@ BEHALTEN = 30  # so lange bleiben Einträge auf der Seite
 FEEDS = [
     ("Goonhammer", "https://www.goonhammer.com/feed/", "tabletop"),
     ("Tabletop Gaming", "https://www.tabletopgaming.co.uk/feed/", "tabletop"),
+    ("ICv2", "https://icv2.com/rss", "tabletop"),
 ]
 
 # Google-News-Suchen: ein Suchbegriff pro Zeile, beliebig erweiterbar
@@ -189,6 +190,8 @@ SEITEN = [
     ("Frontline Gaming ITC", "https://www.frontlinegaming.org/itc-battles/", "tabletop"),
     ("Tabletop Battles", "https://www.tabletopbattles.com/", "tabletop"),
     ("Goonhammer Industry News", "https://www.goonhammer.com/tag/industry-news/", "tabletop"),
+    ("ICv2 Games", "https://icv2.com/articles/games", "tabletop"),
+    ("ICv2 Kalender", "https://icv2.com/articles/calendar", "tabletop"),
     ("Limitless TCG", "https://limitlesstcg.com/", "tcg"),
     ("Limitless Play", "https://play.limitlesstcg.com/", "tcg"),
 ]
