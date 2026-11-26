@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: markt-radar
+  cancel-in-progress: false
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -22,4 +25,5 @@ jobs:
           git config user.email "radar-bot@users.noreply.github.com"
           git add data.json
           git commit -m "Daten aktualisiert" || echo "nichts Neues"
+          git pull --rebase -X theirs origin main
           git push
